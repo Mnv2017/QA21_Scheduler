@@ -29,8 +29,11 @@ public class LoginTests extends TestBase {
     }
 
     @Test
-    public void registerPositiveTest() {
-
+    public void registerPositiveTest() throws InterruptedException {
+        int d = (int) ((System.currentTimeMillis()) / 1000) % 3600;
+        app.getUser().login(new User().setEmail("nnn" + d + "@mail.com").setPassword("Qwerty12345$"));
+        Assert.assertTrue(app.getEvent().isSetYourDataProfilePresent());
+        // wizard_settings_main_container
     }
 
 }

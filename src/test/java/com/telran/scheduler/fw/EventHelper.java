@@ -17,6 +17,10 @@ public class EventHelper extends HelperBase {
         return isElementPresent(By.id("nav_list_fr_container"));
     }
 
+    public boolean isSetYourDataProfilePresent() {
+        return isElementPresent(By.id("wizard_settings_main_container"));
+    }
+
     public void tapOnPlusButton() {
         tap(By.id("fab_main"));
     }

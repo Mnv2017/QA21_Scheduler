@@ -16,6 +16,7 @@ public class UserHelper extends HelperBase{
         hideKeyboard();
         Thread.sleep(1000);
         tapLoginButton();
+        Thread.sleep(1000);
     }
 
     private void tapLoginButton() {
