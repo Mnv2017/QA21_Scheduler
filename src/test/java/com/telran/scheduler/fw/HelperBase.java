@@ -1,7 +1,10 @@
 package com.telran.scheduler.fw;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperBase {
     AppiumDriver driver;
@@ -28,5 +31,16 @@ public class HelperBase {
 
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
+    }
+
+    public boolean isAlertPresent() {
+        Alert alert = new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
+        if (alert == null) {
+            return false;
+        } else {
+            driver.switchTo().alert();
+            alert.accept();
+            return true;
+        }
     }
 }
