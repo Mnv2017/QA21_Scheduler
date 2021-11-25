@@ -38,4 +38,15 @@ public class EventCreationTests extends TestBase {
 
     }
 
+    @Test
+    public void eventCreationChangeDateTestOfRegisteredUserTest() throws InterruptedException {
+
+        app.getEvent().tapOnPlusButton();
+        app.getEvent().tapOnPencil();
+        app.getEvent().selectDate("future", "NOVEMBER", "30");
+
+        app.getEvent().fillEventCreationForm(new Event().setEventTitle("Event")
+                .setEventType("1").setBreaks(1).setWage("50"));
+        app.getEvent().tapOnAddEventButton();
+    }
 }
